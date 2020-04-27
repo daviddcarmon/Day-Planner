@@ -20,6 +20,18 @@ console.log(currentHour);
 
 var toDO;
 var hourTodo;
+var timeList = [
+  "#8",
+  "#9",
+  "#10",
+  "#11",
+  "#12",
+  "#13",
+  "#14",
+  "15",
+  "#16",
+  "#17",
+];
 
 $(document).ready(function () {
   renderText();
@@ -27,9 +39,17 @@ $(document).ready(function () {
 
   //refine with for loop? create an array of time/id
   function renderText() {
+    // for (var i = 0; i < localStorage.length; i++) {
+    //   var todoListTest = JSON.parse(localStorage.getItem(localStorage.key[i]));
+    //   // $("#8").val("");
+    //   $("#8").val(todoListTest);
+    //   console.log(JSON.parse(localStorage.getItem(localStorage.key[i])));
+    // }
+
     var todoList8 = JSON.parse(localStorage.getItem("8:00 am"));
     $("#8").val("");
     $("#8").val(todoList8);
+    console.log(todoList8);
 
     var todoList9 = JSON.parse(localStorage.getItem("9:00 am"));
     $("#9").val("");
@@ -76,7 +96,7 @@ $(document).ready(function () {
     hourTodo = $(this).siblings(".hour").text();
     localStorage.setItem(hourTodo, JSON.stringify(toDO));
     renderText();
-    console.log(this);
+    // console.log(this);
   });
 
   function colorChange() {
@@ -84,7 +104,7 @@ $(document).ready(function () {
     $(".input").each(function () {
       // var currentTime = moment().hours();
       //should be returning timeBlock id - current return is NaN - without parseInt returns undefined
-      console.log($(this).attr("id"));
+      // console.log($(this).attr("id"));
       var timeBlock = parseInt($(this).attr("id"));
 
       if (currentHour > timeBlock) {
