@@ -28,7 +28,7 @@ var timeList = [
   "#12",
   "#13",
   "#14",
-  "15",
+  "#15",
   "#16",
   "#17",
 ];
@@ -40,10 +40,13 @@ $(document).ready(function () {
   //refine with for loop? create an array of time/id
   function renderText() {
     // for (var i = 0; i < localStorage.length; i++) {
-    //   var todoListTest = JSON.parse(localStorage.getItem(localStorage.key[i]));
-    //   // $("#8").val("");
-    //   $("#8").val(todoListTest);
-    //   console.log(JSON.parse(localStorage.getItem(localStorage.key[i])));
+    //   var todoListTest = JSON.parse(localStorage.getItem(localStorage.key(i)));
+    //   for (var i = 0; i < timeList.length; i++) {
+    //     // // $("#8").val("");
+    //     // timeList[i].val(todoListTest);
+    //     console.log(todoListTest);
+    //     // console.log(JSON.parse(localStorage.getItem(localStorage.key(i))));
+    //   }
     // }
 
     var todoList8 = JSON.parse(localStorage.getItem("8:00 am"));
