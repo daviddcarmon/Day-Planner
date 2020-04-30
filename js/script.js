@@ -20,76 +20,76 @@ console.log(currentHour);
 
 var toDO;
 var hourTodo;
-var timeList = [
-  "#8",
-  "#9",
-  "#10",
-  "#11",
-  "#12",
-  "#13",
-  "#14",
-  "#15",
-  "#16",
-  "#17",
-];
+// var timeList = [
+//   "#8",
+//   "#9",
+//   "#10",
+//   "#11",
+//   "#12",
+//   "#13",
+//   "#14",
+//   "#15",
+//   "#16",
+//   "#17",
+// ];
 
 $(document).ready(function () {
-  renderText();
+  // renderText();
   colorChange();
 
   //refine with for loop? create an array of time/id
-  function renderText() {
-    // for (var i = 0; i < localStorage.length; i++) {
-    //   var todoListTest = JSON.parse(localStorage.getItem(localStorage.key(i)));
-    //   for (var i = 0; i < timeList.length; i++) {
-    //     // // $("#8").val("");
-    //     // timeList[i].val(todoListTest);
-    //     console.log(todoListTest);
-    //     // console.log(JSON.parse(localStorage.getItem(localStorage.key(i))));
-    //   }
-    // }
+  // function renderText() {
+  //   // for (var i = 0; i < localStorage.length; i++) {
+  //   //   var todoListTest = JSON.parse(localStorage.getItem(localStorage.key(i)));
+  //   //   for (var i = 0; i < timeList.length; i++) {
+  //   //     // // $("#8").val("");
+  //   //     // timeList[i].val(todoListTest);
+  //   //     console.log(todoListTest);
+  //   //     // console.log(JSON.parse(localStorage.getItem(localStorage.key(i))));
+  //   //   }
+  //   // }
 
-    var todoList8 = JSON.parse(localStorage.getItem("8:00 am"));
-    $("#8").val("");
-    $("#8").val(todoList8);
-    console.log(todoList8);
+  //   var todoList8 = JSON.parse(localStorage.getItem("8:00 am"));
+  //   $("#8").val("");
+  //   $("#8").val(todoList8);
+  //   console.log(todoList8);
 
-    var todoList9 = JSON.parse(localStorage.getItem("9:00 am"));
-    $("#9").val("");
-    $("#9").val(todoList9);
+  //   var todoList9 = JSON.parse(localStorage.getItem("9:00 am"));
+  //   $("#9").val("");
+  //   $("#9").val(todoList9);
 
-    var todoList10 = JSON.parse(localStorage.getItem("10:00 am"));
-    $("#10").val("");
-    $("#10").val(todoList10);
+  //   var todoList10 = JSON.parse(localStorage.getItem("10:00 am"));
+  //   $("#10").val("");
+  //   $("#10").val(todoList10);
 
-    var todoList11 = JSON.parse(localStorage.getItem("11:00 am"));
-    $("#11").val("");
-    $("#11").val(todoList11);
+  //   var todoList11 = JSON.parse(localStorage.getItem("11:00 am"));
+  //   $("#11").val("");
+  //   $("#11").val(todoList11);
 
-    var todoList12 = JSON.parse(localStorage.getItem("12:00 pm"));
-    $("#12").val("");
-    $("#12").val(todoList12);
+  //   var todoList12 = JSON.parse(localStorage.getItem("12:00 pm"));
+  //   $("#12").val("");
+  //   $("#12").val(todoList12);
 
-    var todoList1 = JSON.parse(localStorage.getItem("1:00 pm"));
-    $("#13").val("");
-    $("#13").val(todoList1);
+  //   var todoList1 = JSON.parse(localStorage.getItem("1:00 pm"));
+  //   $("#13").val("");
+  //   $("#13").val(todoList1);
 
-    var todoList2 = JSON.parse(localStorage.getItem("2:00 pm"));
-    $("#14").val("");
-    $("#14").val(todoList2);
+  //   var todoList2 = JSON.parse(localStorage.getItem("2:00 pm"));
+  //   $("#14").val("");
+  //   $("#14").val(todoList2);
 
-    var todoList3 = JSON.parse(localStorage.getItem("3:00 pm"));
-    $("#15").val("");
-    $("#15").val(todoList3);
+  //   var todoList3 = JSON.parse(localStorage.getItem("3:00 pm"));
+  //   $("#15").val("");
+  //   $("#15").val(todoList3);
 
-    var todoList4 = JSON.parse(localStorage.getItem("4:00 pm"));
-    $("#16").val("");
-    $("#16").val(todoList4);
+  //   var todoList4 = JSON.parse(localStorage.getItem("4:00 pm"));
+  //   $("#16").val("");
+  //   $("#16").val(todoList4);
 
-    var todoList5 = JSON.parse(localStorage.getItem("5:00 pm"));
-    $("#17").val("");
-    $("#17").val(todoList5);
-  }
+  //   var todoList5 = JSON.parse(localStorage.getItem("5:00 pm"));
+  //   $("#17").val("");
+  //   $("#17").val(todoList5);
+  // }
 
   $(".saveBtn").click(function (event) {
     event.preventDefault();
@@ -109,6 +109,11 @@ $(document).ready(function () {
       //should be returning timeBlock id - current return is NaN - without parseInt returns undefined
       // console.log($(this).attr("id"));
       var timeBlock = parseInt($(this).attr("id"));
+      var hourTodo = $(this).siblings(".hour").text();
+
+      var todoList = JSON.parse(localStorage.getItem(hourTodo));
+      $(this).val("");
+      $(this).val(todoList);
 
       if (currentHour > timeBlock) {
         $(this).removeClass("future");
